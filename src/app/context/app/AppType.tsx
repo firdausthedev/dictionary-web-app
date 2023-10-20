@@ -27,6 +27,12 @@ interface License {
   url: string;
 }
 
+enum FontType {
+  Serif = "serif",
+  Mono = "mono",
+  SansSerif = "sans-serif",
+}
+
 export interface WordData {
   word: string;
   phonetic: string;
@@ -40,3 +46,25 @@ export interface WordDataError {
   message: string;
   resolution: string;
 }
+
+export interface AppState {
+  loading: boolean;
+  response?: WordData[] | WordDataError;
+  fonts: FontType;
+}
+
+export const initialState: AppState = {
+  loading: false,
+  fonts: FontType.Serif,
+};
+
+export enum AppActionType {
+  SET_LOADING,
+  SET_FONTS,
+  SET_RESPONSE,
+}
+
+export type AppActionTypes =
+  | { type: AppActionType.SET_LOADING; payload: boolean }
+  | { type: AppActionType.SET_FONTS; payload: FontType }
+  | { type: AppActionType.SET_RESPONSE; payload: WordData[] | WordDataError };

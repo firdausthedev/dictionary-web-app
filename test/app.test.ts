@@ -39,6 +39,7 @@ describe("searchByKey()", () => {
 
     try {
       await searchByKey(word);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       expect(error.message).toBe("Server responded with an error status");
     }
