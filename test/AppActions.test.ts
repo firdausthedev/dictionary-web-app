@@ -1,5 +1,8 @@
-import { WordData, WordDataError } from "@/app/context/components/app/AppType";
-import { searchByKey } from "../src/app/context/components/app/AppActions";
+import {
+  WordData,
+  WordDataError,
+} from "../src/app/components/context/app/AppType";
+import { searchByKey } from "../src/app/components/context/app/AppActions";
 import { vi, describe, test as it, beforeEach, expect } from "vitest";
 
 describe("searchByKey()", () => {
@@ -28,20 +31,23 @@ describe("searchByKey()", () => {
   });
 
   it("should throw an error when the API call fails", async () => {
-    const word = "example";
+    const mockError: WordDataError = {
+      title: "No Definitions Found",
+      message:
+        "Sorry pal, we couldn't find definitions for the word you were looking for.",
+      resolution:
+        "You can try the search again at later time or head to the web instead.",
+    };
 
     vi.stubGlobal(
       "fetch",
       vi.fn().mockResolvedValue({
         ok: false,
+        json: async () => mockError,
       }),
     );
 
-    try {
-      await searchByKey(word);
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (error: any) {
-      expect(error.message).toBe("Server responded with an error status");
-    }
+    const result = await searchByKey("nonExistentWord");
+    expect(result).toEqual(mockError);
   });
 });
