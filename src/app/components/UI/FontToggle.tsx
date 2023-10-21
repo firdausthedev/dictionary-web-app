@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useContext } from "react";
-import AppContext from "../app/AppContext";
-import { AppActionType, FontType } from "../app/AppType";
+import { AppActionType, FontType } from "../context/app/AppType";
+import AppContext from "../context/app/AppContext";
 const FontToggle = () => {
   const [showDropDown, setShowDropDown] = useState(false);
   const { state, dispatch } = useContext(AppContext);

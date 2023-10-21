@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Lora, Inconsolata } from "next/font/google";
 import "./globals.css";
-import { ThemeProviders } from "./context/components/theme/ThemeProviders";
-import Navbar from "./context/components/Navbar";
-import { AppProvider } from "./context/components/app/AppContext";
+import { ThemeProviders } from "./components/context/theme/ThemeProviders";
+import Navbar from "./components/Navbar";
+import { AppProvider } from "./components/context/app/AppContext";
 
 const inter = Inter({
   subsets: ["latin"],

@@ -1,12 +1,11 @@
 "use client";
 
-import SearchBar from "./context/components/UI/SearchBar";
 import { useContext } from "react";
-import AppContext from "./context/components/app/AppContext";
-import { AppActionType } from "./context/components/app/AppType";
-import { searchByKey } from "./context/components/app/AppActions";
-import { WordDataError } from "@/app/context/components/app/AppType";
-import { WordData } from "@/app/context/components/app/AppType";
+import SearchBar from "./components/UI/SearchBar";
+import AppContext from "./components/context/app/AppContext";
+import { AppActionType } from "./components/context/app/AppType";
+import { searchByKey } from "./components/context/app/AppActions";
+import { WordData, WordDataError } from "./components/context/app/AppType";
 
 export default function Home() {
   const { state, dispatch } = useContext(AppContext);

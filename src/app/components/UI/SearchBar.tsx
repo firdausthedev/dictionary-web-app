@@ -1,7 +1,6 @@
 "use client";
-
-import AppContext from "../app/AppContext";
 import { useContext } from "react";
+import AppContext from "../context/app/AppContext";
 
 interface SearchBarProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;

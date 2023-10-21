@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Logo from "../../assests/images/logo.svg";
+import Logo from "../assests/images/logo.svg";
 import ThemeToggle from "./UI/ThemeToggle";
 import FontToggle from "./UI/FontToggle";
 
