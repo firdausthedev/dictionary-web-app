@@ -23,7 +23,12 @@ export default function Home() {
         const data: WordDataError | WordData[] = await searchByKey(key);
         dispatch({ type: AppActionType.SET_RESPONSE, payload: data });
       } catch (error) {
-        console.log(error);
+        const data: WordDataError = {
+          title: "Error",
+          message: "Something went wrong",
+          resolution: "Please try again later",
+        };
+        dispatch({ type: AppActionType.SET_RESPONSE, payload: data });
       }
       dispatch({ type: AppActionType.SET_LOADING, payload: false });
     }
@@ -36,7 +41,7 @@ export default function Home() {
   const ErrorMessageComponent = () => {
     if (!state.loading && state.response && "message" in state.response) {
       return (
-        <div className="mt-32 text-center gap-5 flex flex-col">
+        <div className="mt-12 text-center gap-5 flex flex-col">
           <p className="text-6xl">😕</p>
           <h1 className="font-bold text-xl capitalize">
             {state.response.title}
@@ -68,8 +73,10 @@ export default function Home() {
         <div className="mt-6 flex flex-col">
           <div className="flex justify-between items-center">
             <div className="flex flex-col gap-5">
-              <h1 className="text-6xl font-bold">{word}</h1>
-              <p className="text-2xl text-accent leading-none">{phonetic}</p>
+              <h1 className="text-6xl font-bold break-all">{word}</h1>
+              <p className="text-2xl text-accent leading-none break-all">
+                {phonetic}
+              </p>
             </div>
             <div>
               {audioSrc && (
@@ -128,9 +135,14 @@ export default function Home() {
               <h4 className="mt-6 text-base">Source</h4>
               {sourceUrls.map((url, index) => {
                 return (
-                  <p key={index} className="text-base">
+                  <a
+                    key={index}
+                    className="text-base block hover:text-accent transition"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={url}>
                     {url}
-                  </p>
+                  </a>
                 );
               })}
             </div>

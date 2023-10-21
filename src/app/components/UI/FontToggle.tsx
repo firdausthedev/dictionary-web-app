@@ -18,7 +18,7 @@ const FontToggle = () => {
         id="dropdownDefaultButton"
         data-dropdown-toggle="dropdown"
         onClick={() => setShowDropDown(!showDropDown)}
-        className={`flex items-center gap-4 ${state.fonts}`}
+        className={`flex items-center gap-4 ${state.fonts} outline-accent`}
         type="button">
         {state.fonts === FontType.SansSerif && "Sans Serif"}
         {state.fonts === FontType.Serif && "Serif"}
@@ -50,7 +50,7 @@ const FontToggle = () => {
             } cursor-pointer w-full`}>
             <button
               aria-label="Sans Serif"
-              className="w-full text-start"
+              className="w-full text-start outline-accent"
               onClick={() => handleFontChange(FontType.SansSerif)}>
               Sans Serif
             </button>
@@ -61,7 +61,7 @@ const FontToggle = () => {
             } cursor-pointer`}>
             <button
               aria-label="Serif"
-              className="w-full text-start"
+              className="w-full text-start outline-accent"
               onClick={() => handleFontChange(FontType.Serif)}>
               Serif
             </button>
@@ -72,7 +72,7 @@ const FontToggle = () => {
             } cursor-pointer`}>
             <button
               aria-label="Mono"
-              className="w-full text-start"
+              className="w-full text-start outline-accent"
               onClick={() => handleFontChange(FontType.Mono)}>
               Mono
             </button>

@@ -11,7 +11,7 @@ const SearchBar = ({ onChange, onSearch }: SearchBarProps) => {
   const { state } = useContext(AppContext);
 
   return (
-    <div className="relative mt-14">
+    <div className="relative mt-6 md:mt-14">
       <div className="absolute top-0 bottom-0 my-auto right-6 flex items-center cursor-pointer">
         <svg
           onClick={() => onSearch(state.searchKey)}
