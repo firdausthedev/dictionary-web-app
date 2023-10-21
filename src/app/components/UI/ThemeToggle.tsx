@@ -1,10 +1,22 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Spinner from "./Spinner";
 
 const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <Spinner />;
+  }
+
   return (
     <div className="flex items-center gap-5">
       <div className="flex items-center justify-center w-full">
@@ -16,9 +28,21 @@ const ThemeToggle = () => {
               type="checkbox"
               id="theme-toggle"
               className="hidden peer"
-              checked={theme === "dark" ? true : false}
+              checked={
+                theme === "dark"
+                  ? true
+                  : resolvedTheme === "dark"
+                  ? true
+                  : false
+              }
               onChange={() => {
-                setTheme(theme === "dark" ? "light" : "dark");
+                setTheme(
+                  theme === "dark"
+                    ? "light"
+                    : resolvedTheme === "dark"
+                    ? "light"
+                    : "dark",
+                );
               }}
             />
             <div className="block bg-gray w-10 h-6 rounded-full peer-checked:bg-accent transition"></div>
