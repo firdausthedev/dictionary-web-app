@@ -1,5 +1,5 @@
-import { WordData, WordDataError } from "@/app/context/app/AppType";
-import { searchByKey } from "./../src/app/context/app/AppActions";
+import { WordData, WordDataError } from "@/app/context/components/app/AppType";
+import { searchByKey } from "../src/app/context/components/app/AppActions";
 import { vi, describe, test as it, beforeEach, expect } from "vitest";
 
 describe("searchByKey()", () => {

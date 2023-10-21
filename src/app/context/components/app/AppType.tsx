@@ -27,10 +27,10 @@ interface License {
   url: string;
 }
 
-enum FontType {
-  Serif = "serif",
-  Mono = "mono",
-  SansSerif = "sans-serif",
+export enum FontType {
+  Serif = "font-inter",
+  SansSerif = "font-lora",
+  Mono = "font-inconsolata",
 }
 
 export interface WordData {
@@ -55,7 +55,7 @@ export interface AppState {
 
 export const initialState: AppState = {
   loading: false,
-  fonts: FontType.Serif,
+  fonts: FontType.SansSerif,
 };
 
 export enum AppActionType {

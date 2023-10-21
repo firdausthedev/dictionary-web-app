@@ -13,10 +13,21 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        gray: {
+          DEFAULT: "#838383",
+          lighter: "#CFCFCF",
+          darker: "#3B3B3B",
+        },
+        accent: "#A445ED",
+      },
       fontFamily: {
         inter: ["var(--font-inter)"],
         lora: ["var(--font-lora)"],
         inconsolata: ["var(--font-inconsolata)"],
+      },
+      boxShadow: {
+        dropDown: "rgba(0, 0, 0, 0.1) 0px 5px 30px 0px",
       },
     },
   },

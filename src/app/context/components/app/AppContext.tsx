@@ -1,3 +1,5 @@
+"use client";
+
 import React, { createContext, ReactNode, useReducer } from "react";
 import { AppActionTypes, AppState, initialState } from "./AppType";
 import appReducer from "./AppReducer";
@@ -10,7 +12,7 @@ const AppContext = createContext<{
   dispatch: () => null,
 });
 
-export const GameProvider = ({ children }: { children: ReactNode }) => {
+export const AppProvider = ({ children }: { children: ReactNode }) => {
   const [state, dispatch] = useReducer(appReducer, initialState);
 
   return (

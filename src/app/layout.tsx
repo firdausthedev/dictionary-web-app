@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Lora, Inconsolata } from "next/font/google";
 import "./globals.css";
+import { ThemeProviders } from "./context/components/theme/ThemeProviders";
+import Navbar from "./context/components/Navbar";
+import { AppProvider } from "./context/components/app/AppContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -33,8 +36,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${lora.variable} ${inconsolata.variable} font-sans`}>
-        {children}
+        className={`${inter.variable} ${lora.variable} ${inconsolata.variable} font-sans container mx-auto max-w-[768px] px-6 py-14`}>
+        <ThemeProviders>
+          <AppProvider>
+            <Navbar />
+            {children}
+          </AppProvider>
+        </ThemeProviders>
       </body>
     </html>
   );
