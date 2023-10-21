@@ -28,8 +28,8 @@ interface License {
 }
 
 export enum FontType {
-  Serif = "font-inter",
-  SansSerif = "font-lora",
+  SansSerif = "font-inter",
+  Serif = "font-lora",
   Mono = "font-inconsolata",
 }
 
@@ -51,20 +51,24 @@ export interface AppState {
   loading: boolean;
   response?: WordData[] | WordDataError;
   fonts: FontType;
+  searchKey: string;
 }
 
 export const initialState: AppState = {
   loading: false,
   fonts: FontType.SansSerif,
+  searchKey: "",
 };
 
 export enum AppActionType {
   SET_LOADING,
   SET_FONTS,
   SET_RESPONSE,
+  SET_SEARCHKEY,
 }
 
 export type AppActionTypes =
   | { type: AppActionType.SET_LOADING; payload: boolean }
+  | { type: AppActionType.SET_SEARCHKEY; payload: string }
   | { type: AppActionType.SET_FONTS; payload: FontType }
   | { type: AppActionType.SET_RESPONSE; payload: WordData[] | WordDataError };

@@ -17,6 +17,11 @@ const appReducer = (state: AppState, action: AppActionTypes): AppState => {
         ...state,
         loading: action.payload,
       };
+    case AppActionType.SET_SEARCHKEY:
+      return {
+        ...state,
+        searchKey: action.payload,
+      };
     default:
       return state;
   }

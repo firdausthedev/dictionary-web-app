@@ -15,6 +15,8 @@ const config: Config = {
           lighter: "#CFCFCF",
           darker: "#3B3B3B",
         },
+        searchbarBg: "#F5F5F5",
+        dark: "#1E1E1E",
         accent: "#A445ED",
       },
       fontFamily: {
@@ -24,6 +26,7 @@ const config: Config = {
       },
       boxShadow: {
         dropDown: "rgba(0, 0, 0, 0.1) 0px 5px 30px 0px",
+        dropDownDark: "0px 5px 30px hsl(274deg, 82%, 50%);",
       },
     },
   },

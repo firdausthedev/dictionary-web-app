@@ -17,7 +17,7 @@ const ThemeToggle = () => {
               id="theme-toggle"
               className="hidden peer"
               checked={theme === "dark" ? true : false}
-              onClick={() => {
+              onChange={() => {
                 setTheme(theme === "dark" ? "light" : "dark");
               }}
             />

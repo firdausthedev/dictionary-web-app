@@ -40,7 +40,7 @@ const FontToggle = () => {
         id="dropdown"
         className={`z-10 mt-3 ${
           showDropDown ? "block" : "hidden"
-        } bg-white rounded-lg shadow-dropDown w-36 absolute right-5 p-6`}>
+        } bg-white rounded-lg shadow-dropDown dark:shadow-dropDownDark dark:bg-dark w-36 absolute right-5 p-6`}>
         <ul
           className="flex flex-col gap-3 "
           aria-labelledby="dropdownDefaultButton">

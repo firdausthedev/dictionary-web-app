@@ -8,9 +8,10 @@ export const searchByKey = async (
   );
 
   if (!response.ok) {
-    throw new Error("Server responded with an error status");
+    const data: WordDataError = await response.json();
+    return data;
   }
 
-  const data: WordData[] | WordDataError = await response.json();
+  const data: WordData[] = await response.json();
   return data;
 };
