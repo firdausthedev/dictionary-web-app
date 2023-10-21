@@ -36,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${lora.variable} ${inconsolata.variable} font-sans container mx-auto max-w-[768px] px-6 py-14`}>
+        className={`${inter.variable} ${lora.variable} ${inconsolata.variable} font-sans container mx-auto max-w-[768px] px-6 py-14 dark:bg-black`}>
         <ThemeProviders>
           <AppProvider>
             <Navbar />
