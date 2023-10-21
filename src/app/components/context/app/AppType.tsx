@@ -1,21 +1,21 @@
 interface Pronunciation {
   text: string;
   audio: string;
-  sourceUrl: string;
+  sourceUrl?: string;
   license?: {
     name: string;
     url: string;
   };
 }
 
-interface Definition {
+export interface Definition {
   definition: string;
   synonyms: string[];
   antonyms: string[];
   example?: string;
 }
 
-interface Meanings {
+export interface Meanings {
   partOfSpeech: string;
   definitions: Definition[];
   synonyms: string[];
