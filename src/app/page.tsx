@@ -3,7 +3,11 @@
 import { useContext } from "react";
 import SearchBar from "./components/UI/SearchBar";
 import AppContext from "./components/context/app/AppContext";
-import { AppActionType, Meanings } from "./components/context/app/AppType";
+import {
+  AppActionType,
+  Meanings,
+  Pronunciation,
+} from "./components/context/app/AppType";
 import { searchByKey } from "./components/context/app/AppActions";
 import { WordData, WordDataError } from "./components/context/app/AppType";
 import Spinner from "./components/UI/Spinner";
@@ -38,6 +42,15 @@ export default function Home() {
     return list.map(item => item).join(", ");
   };
 
+  const hasValidAudio = (phonetics: Pronunciation[]): string => {
+    for (const phonetic of phonetics) {
+      if (phonetic.audio && phonetic.audio.trim() !== "") {
+        return phonetic.audio;
+      }
+    }
+    return "";
+  };
+
   const ErrorMessageComponent = () => {
     if (!state.loading && state.response && "message" in state.response) {
       return (
@@ -61,10 +74,7 @@ export default function Home() {
       const word: string = response[0].word;
       const phonetic: string = response[0].phonetic;
       // index 2 is the us audio
-      const audioSrc: string =
-        response[0]?.phonetics[2]?.audio ??
-        response[0]?.phonetics[0]?.audio ??
-        "";
+      const audioSrc: string = hasValidAudio(response[0].phonetics);
       const audio: HTMLAudioElement = new Audio(audioSrc);
       const meanings: Meanings[] = response[0]?.meanings ?? [];
       const sourceUrls: string[] = response[0]?.sourceUrls ?? [];
