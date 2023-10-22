@@ -19,3 +19,7 @@
 ## Screenshot
 
 ![Screenshot](./screenshot.webp)
+
+## PageSpeed Performance Insight
+
+![Screenshot](./pagespeed.png)
