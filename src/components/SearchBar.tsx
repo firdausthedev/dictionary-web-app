@@ -59,7 +59,7 @@ const SearchBar = () => {
           }
         }}
         value={state.searchKey}
-        className={`${state.fonts} block w-full rounded-2xl border-none bg-searchbarBg px-6 py-5 text-xl font-bold leading-none no-underline
+        className={` block w-full rounded-2xl border-none bg-searchbarBg px-6 py-5 text-xl font-bold leading-none no-underline
          outline-accent placeholder:text-gray dark:bg-dark`}
         placeholder="Search for any word..."
       />

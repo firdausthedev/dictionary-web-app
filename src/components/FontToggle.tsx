@@ -7,14 +7,25 @@ const FontToggle = () => {
   const [showDropDown, setShowDropDown] = useState(false);
   const { state, dispatch } = useContext(AppContext);
 
+  const applyFontStyle = (font: FontType) => {
+    document.body.classList.remove(
+      FontType.SansSerif,
+      FontType.Serif,
+      FontType.Mono,
+    );
+    document.body.classList.add(font);
+  };
+
   const handleFontChange = (font: FontType) => {
     dispatch({ type: AppActionType.SET_FONTS, payload: font });
     setShowDropDown(false);
+    applyFontStyle(font);
   };
 
   return (
     <div className="relative" data-testid="font-toggle">
       <button
+        data-testid="drop-down-button"
         id="dropdownDefaultButton"
         data-dropdown-toggle="dropdown"
         onClick={() => setShowDropDown(!showDropDown)}
@@ -37,6 +48,7 @@ const FontToggle = () => {
         </svg>
       </button>
       <div
+        data-testid="dropdown"
         id="dropdown"
         className={`z-10 mt-3 ${
           showDropDown ? "block" : "hidden"
@@ -49,6 +61,7 @@ const FontToggle = () => {
               state.fonts === FontType.SansSerif && "text-accent"
             } w-full cursor-pointer`}>
             <button
+              data-testid="dropdown-btn"
               aria-label="Sans Serif"
               className="w-full text-start outline-accent"
               onClick={() => handleFontChange(FontType.SansSerif)}>
@@ -60,6 +73,7 @@ const FontToggle = () => {
               state.fonts === FontType.Serif && "text-accent"
             } cursor-pointer`}>
             <button
+              data-testid="dropdown-btn"
               aria-label="Serif"
               className="w-full text-start outline-accent"
               onClick={() => handleFontChange(FontType.Serif)}>
@@ -71,6 +85,7 @@ const FontToggle = () => {
               state.fonts === FontType.Mono && "text-accent"
             } cursor-pointer`}>
             <button
+              data-testid="dropdown-btn"
               aria-label="Mono"
               className="w-full text-start outline-accent"
               onClick={() => handleFontChange(FontType.Mono)}>

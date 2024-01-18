@@ -21,7 +21,7 @@ const WordDataComponent = () => {
     const sourceUrls: string[] = response[0]?.sourceUrls ?? [];
 
     return (
-      <div className={`mt-6 flex flex-col ${state.fonts}`}>
+      <div className={`mt-6 flex flex-col`}>
         <div className="flex items-center justify-between">
           <div className="flex flex-col gap-5">
             <h1 className="break-all text-6xl font-bold">{word}</h1>

@@ -37,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <body
-        className={`${inter.variable} ${lora.variable} ${inconsolata.variable} container mx-auto max-w-[768px] px-6 py-14 font-sans dark:bg-black`}>
+        className={`${inter.variable} ${lora.variable} ${inconsolata.variable} container mx-auto max-w-[768px] px-6 py-14 font-inter dark:bg-black`}>
         <ThemeProviders>
           <AppProvider>
             <Navbar />
