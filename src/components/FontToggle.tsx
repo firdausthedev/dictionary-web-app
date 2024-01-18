@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useContext } from "react";
-import { AppActionType, FontType } from "../context/app/AppType";
-import AppContext from "../context/app/AppContext";
+import { AppActionType, FontType } from "@/context/app/AppType";
+import AppContext from "@/context/app/AppContext";
 const FontToggle = () => {
   const [showDropDown, setShowDropDown] = useState(false);
   const { state, dispatch } = useContext(AppContext);
@@ -13,7 +13,7 @@ const FontToggle = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative" data-testid="font-toggle">
       <button
         id="dropdownDefaultButton"
         data-dropdown-toggle="dropdown"
@@ -24,7 +24,7 @@ const FontToggle = () => {
         {state.fonts === FontType.Serif && "Serif"}
         {state.fonts === FontType.Mono && "Mono"}
         <svg
-          className="w-4 h-4 stroke-accent"
+          className="h-4 w-4 stroke-accent"
           stroke="currentColor"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg">
@@ -40,14 +40,14 @@ const FontToggle = () => {
         id="dropdown"
         className={`z-10 mt-3 ${
           showDropDown ? "block" : "hidden"
-        } bg-white rounded-lg shadow-dropDown dark:shadow-dropDownDark dark:bg-dark w-36 absolute right-5 p-6`}>
+        } absolute right-5 w-36 rounded-lg bg-white p-6 shadow-dropDown dark:bg-dark dark:shadow-dropDownDark`}>
         <ul
           className="flex flex-col gap-3 "
           aria-labelledby="dropdownDefaultButton">
           <li
             className={`${FontType.SansSerif} ${
               state.fonts === FontType.SansSerif && "text-accent"
-            } cursor-pointer w-full`}>
+            } w-full cursor-pointer`}>
             <button
               aria-label="Sans Serif"
               className="w-full text-start outline-accent"

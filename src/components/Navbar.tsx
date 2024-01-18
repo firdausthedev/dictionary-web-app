@@ -1,14 +1,20 @@
 import React from "react";
 import Image from "next/image";
-import Logo from "../assests/images/logo.svg";
-import ThemeToggle from "./UI/ThemeToggle";
-import FontToggle from "./UI/FontToggle";
+import Logo from "@/assets/images/logo.svg";
+import ThemeToggle from "./ThemeToggle";
+import FontToggle from "./FontToggle";
 
 const Navbar = () => {
   return (
-    <nav className={`flex justify-between items-center`}>
+    <nav className="flex items-center justify-between">
       <div>
-        <Image src={Logo} alt="logo" width={34} height={38} />
+        <Image
+          src={Logo}
+          alt="logo"
+          width={34}
+          height={38}
+          data-testid="logo"
+        />
       </div>
       <div className="flex items-center gap-5">
         <FontToggle />

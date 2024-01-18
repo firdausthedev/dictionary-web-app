@@ -54,12 +54,6 @@ export interface AppState {
   searchKey: string;
 }
 
-export const initialState: AppState = {
-  loading: false,
-  fonts: FontType.SansSerif,
-  searchKey: "",
-};
-
 export enum AppActionType {
   SET_LOADING,
   SET_FONTS,

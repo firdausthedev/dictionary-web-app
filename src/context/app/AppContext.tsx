@@ -1,8 +1,14 @@
 "use client";
 
 import React, { createContext, ReactNode, useReducer } from "react";
-import { AppActionTypes, AppState, initialState } from "./AppType";
+import { AppActionTypes, AppState, FontType } from "./AppType";
 import appReducer from "./AppReducer";
+
+const initialState: AppState = {
+  loading: false,
+  fonts: FontType.SansSerif,
+  searchKey: "",
+};
 
 const AppContext = createContext<{
   state: AppState;

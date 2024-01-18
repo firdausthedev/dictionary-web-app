@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Lora, Inconsolata } from "next/font/google";
-import "./globals.css";
-import { ThemeProviders } from "./components/context/theme/ThemeProviders";
-import Navbar from "./components/Navbar";
-import { AppProvider } from "./components/context/app/AppContext";
+import "@/app/globals.css";
+import { ThemeProviders } from "@/context/theme/ThemeProviders";
+import Navbar from "@/components/Navbar";
+import { AppProvider } from "@/context/app/AppContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -35,9 +35,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning={true}>
       <body
-        className={`${inter.variable} ${lora.variable} ${inconsolata.variable} font-sans container mx-auto max-w-[768px] px-6 py-14 dark:bg-black`}>
+        className={`${inter.variable} ${lora.variable} ${inconsolata.variable} container mx-auto max-w-[768px] px-6 py-14 font-sans dark:bg-black`}>
         <ThemeProviders>
           <AppProvider>
             <Navbar />

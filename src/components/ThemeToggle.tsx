@@ -18,38 +18,39 @@ const ThemeToggle = () => {
   }
 
   return (
-    <div className="flex items-center gap-5">
-      <div className="flex items-center justify-center w-full">
+    <div className="flex items-center gap-5" data-testid="theme-toggle">
+      <div className="flex w-full items-center justify-center">
         <label
           htmlFor="theme-toggle"
-          className="flex items-center cursor-pointer">
+          className="flex cursor-pointer items-center">
           <div className="relative">
             <input
               type="checkbox"
               id="theme-toggle"
-              className="hidden peer"
+              className="peer hidden"
               checked={
                 theme === "dark"
                   ? true
                   : resolvedTheme === "dark"
-                  ? true
-                  : false
+                    ? true
+                    : false
               }
               onChange={() => {
                 setTheme(
                   theme === "dark"
                     ? "light"
                     : resolvedTheme === "dark"
-                    ? "light"
-                    : "dark",
+                      ? "light"
+                      : "dark",
                 );
               }}
             />
-            <div className="block bg-gray w-10 h-6 rounded-full peer-checked:bg-accent transition"></div>
+            <div className="block h-6 w-10 rounded-full bg-gray transition peer-checked:bg-accent"></div>
             <div
-              className="peer-checked:translate-x-full
-            dot absolute left-1 top-0 bottom-0 my-auto bg-white w-4 h-4 rounded-full transition"></div>
+              className="dot
+            absolute bottom-0 left-1 top-0 my-auto h-4 w-4 rounded-full bg-white transition peer-checked:translate-x-full"></div>
           </div>
+          <span className="sr-only">Toggle theme</span>
         </label>
       </div>
       <svg
@@ -58,7 +59,7 @@ const ThemeToggle = () => {
         width="22"
         height="22"
         viewBox="0 0 22 22"
-        className="scale-[1.7] stroke-gray cursor-pointer hover:stroke-accent transition-colors ">
+        className="scale-[1.7] cursor-pointer stroke-gray transition-colors hover:stroke-accent ">
         <path
           fill="none"
           strokeLinecap="round"
